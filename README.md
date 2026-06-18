@@ -1,33 +1,97 @@
-# নির্দেশিকা-১৬ (Nirdeshika-16) - সার্বভৌম যন্ত্র-বিধান
+# Nirdeshika-16 — The World's First Bengali Instruction Set Architecture
 
-**নির্দেশিকা-১৬** হলো একটি সম্পূর্ণ স্বাধীন ও স্বয়ংসম্পূর্ণ ১৬-বিট কম্পিউটিং স্থাপত্য বা **যন্ত্র-বিধান (Instruction Set Architecture)**। এটি 'অক্ষর ল্যাবস' (Akkhar-Labs)-এর পক্ষ থেকে বাংলাদেশের জন্য একটি মৌলিক কম্পিউটিং স্ট্যান্ডার্ড তৈরির দীর্ঘমেয়াদী প্রচেষ্টার ফসল। 
+**Nirdeshika-16** is a 16-bit **Instruction Set Architecture (ISA)** designed
+and implemented by **Akkhar-Labs**. It is the first computing architecture to
+use Bengali linguistic and mathematical conventions as its native design
+language — from custom encoding to instruction logic.
 
-প্রচলিত পশ্চিমা কম্পিউটিং কাঠামোর ওপর নির্ভরতা কমিয়ে মেমোরি লেভেল থেকে শুরু করে গাণিতিক যুক্তি পর্যন্ত সম্পূর্ণ দেশীয় এনকোডিং এবং দর্শন অনুসরণ করাই এই যন্ত্র-বিধানের মূল লক্ষ্য।
-
-## প্রধান কারিগরি বৈশিষ্ট্য
-
-- **আর্কিটেকচার:** ১৬-বিট বিশুদ্ধ নেটিভ।
-- **ধরন:** আদান-প্রদান ভিত্তিক (Load-Store Architecture)।
-- **বিট বিন্যাস:** লিটল-এন্ডিয়ান (Little-endian)।
-- **এনকোডিং:** অক্ষর-লিপি ৮ (Akshar-Lipi 8)।
-- **সংখ্যা পদ্ধতি:** নির্দেশিকা-১৬ নিজস্ব 'ষোড়শিক' (Akkhar-Hex) পদ্ধতি ব্যবহার করে।
-
-## যন্ত্র-বিধানের কাঠামো (Instruction Format)
-
-নির্দেশিকা-১৬ এর প্রতিটি নির্দেশ ১৬-বিটের এবং তা **৪-৪-৮** বিন্যাসে বিভক্ত:
-1. **ওকোড (Opcode):** ৪-বিট (সর্বমোট ১৬টি মৌলিক নির্দেশ)।
-2. **সাময়িক আইডি (Register ID):** ৪-বিট (১৬টি সাধারণ ও বিশেষ সাময়িক)।
-3. **মান বা ঠিকানা (Immediate/Address):** ৮-বিট।
-
-## ইকোসিস্টেমের বর্তমান অবস্থা
-
-এই যন্ত্র-বিধানের ওপর ভিত্তি করে বর্তমানে নিচের টুলগুলো উন্নয়ন করা হচ্ছে:
-- **[বয়ন (Boyon)](https://github.com/Akkhar-Labs/Boyon):** নির্দেশিকা-১৬ এর জন্য তৈরি সার্বভৌম নেটিভ অ্যাসেম্বলার।
-- **শিমু (Shimu):** নির্দেশিকা-১৬ এর ভার্চুয়াল হার্ডওয়্যার সিমুলেটর (নির্মাণাধীন)।
-
-## ডাউনলোড ও নথিপত্র
-নির্দেশিকা-১৬ স্থাপত্যের বিস্তারিত কারিগরি বিবরণ জানতে এই রিপোজিটরির **[Releases](https://github.com/Akkhar-Labs/Nirdeshika-16/releases)** সেকশন থেকে 'মাস্টার স্পেসিফিকেশন' পিডিএফ ফাইলটি ডাউনলোড করুন।
+> **Status:** Reference Implementation (Feature-Complete)  
+> **Successor:** Nirdeshika-64 (Planned)
 
 ---
-**স্থাপত্য ও পরিকল্পনা:** [রাহাত হাসান](https://github.com/rahatarch)  
-**প্রতিষ্ঠান:** অক্ষর ল্যাবস (Akkhar-Labs)
+
+## Purpose
+
+Nirdeshika-16 exists to answer a foundational question:
+
+> _"Can a complete Instruction Set Architecture be designed natively in Bengali,
+> without depending on English-centric computing standards?"_
+
+The answer is **yes**. Nirdeshika-16 demonstrates this through:
+
+- Custom **Akshar-Lipi 8** character encoding
+- Proprietary **Akkhar-Hex** number system (Bengali consonants for hexadecimal
+  values)
+- Bengali-named registers, opcodes, and addressing modes
+- A working assembler and virtual simulator
+
+---
+
+## Key Technical Specifications
+
+| Property          | Specification                                    |
+| ----------------- | ------------------------------------------------ |
+| **Architecture**  | 16-bit Native                                    |
+| **Design Type**   | Load-Store (RISC)                                |
+| **Endianness**    | Little-Endian                                    |
+| **Encoding**      | Akshar-Lipi 8 (Custom)                           |
+| **Number System** | Akkhar-Hex (Bengali consonants for values 10–15) |
+
+---
+
+## Instruction Format (4-4-8)
+
+Every instruction is 16 bits wide and follows a fixed **4-4-8** structure:
+
+| Field                   | Width  | Description                                      |
+| ----------------------- | ------ | ------------------------------------------------ |
+| **Opcode**              | 4 bits | 16 unique instructions                           |
+| **Register ID**         | 4 bits | 16 general-purpose and special-purpose registers |
+| **Immediate / Address** | 8 bits | Constant value or memory address                 |
+
+This RISC-style, fixed-width format ensures deterministic decoding.
+
+---
+
+## Ecosystem
+
+The reference implementation includes two supporting tools:
+
+- **[Boyon (Assembler)](https://github.com/Akkhar-Labs/Boyon):** A native
+  assembler that processes Bengali-syntax assembly code into Nirdeshika-16
+  binary output.
+- **[Shimu (Simulator)](https://github.com/Akkhar-Labs/Shimu):** A
+  high-performance virtual CPU simulator implementing the full
+  fetch-decode-execute cycle with 64KB of virtual RAM.
+
+---
+
+## Documentation
+
+The complete technical specification is available in the
+**[Master Specification PDF](https://github.com/Akkhar-Labs/Nirdeshika-16/releases)**.
+
+---
+
+## Roadmap
+
+Nirdeshika-16 is feature-complete. The next iteration — **Nirdeshika-64** — will
+be a production-grade 64-bit architecture as part of the broader **Sovereign
+Bengali Computing Stack**:
+
+- **Matrika OS** — Native operating system
+- **BAPS Kernel** — Bengali-native kernel
+- **Kotha Language** — Conversational Bengali programming language
+
+---
+
+## Architecture & Authorship
+
+- **Architect:** [Rahat Hasan](https://github.com/rahatarch)
+- **Organization:** [Akkhar-Labs](https://github.com/Akkhar-Labs)
+
+---
+
+## License
+
+This project is open source. See [LICENSE](LICENSE) for details.
