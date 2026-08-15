@@ -1,97 +1,92 @@
-# Nirdeshika-16 — The World's First Bengali Instruction Set Architecture
+# Nirdeshika-16 — A Computer Processor That Understands Bengali
 
-**Nirdeshika-16** is a 16-bit **Instruction Set Architecture (ISA)** designed
-and implemented by **Akkhar-Labs**. It is the first computing architecture to
-use Bengali linguistic and mathematical conventions as its native design
-language — from custom encoding to instruction logic.
+**Nirdeshika-16** is a computer processor design that works entirely in Bengali. Not translated into Bengali. Built from scratch using Bengali language, numbers, and logic.
 
-> **Status:** Reference Implementation (Feature-Complete)  
-> **Successor:** Nirdeshika-64 (Planned)
+> **For hardware engineers and architects:** This repository is the technical specification of the Nirdeshika-16 processor. If you want to write and run Bengali programs, head over to the [Shimu](https://github.com/Akkhar-Labs/Shimu) (simulator) and [Boyon](https://github.com/Akkhar-Labs/Boyon) (assembler) repositories instead.
+
+> **What you can do with it right now:** Write programs in Bengali. Assemble them into machine code. Run them on a virtual CPU. All in Bengali. No English required.
 
 ---
 
-## Purpose
+## What This Actually Means
 
-Nirdeshika-16 exists to answer a foundational question:
+Every computer processor executes binary — patterns of 0s and 1s. But the human-facing layer — the instruction mnemonics, register names, documentation, and encoding — is what engineers actually read and write. For decades, that human-facing layer has been English. Intel's instruction set is English. ARM's instruction set is English. Even processors designed in China, Russia, and India use English at the human level.
 
-> _"Can a complete Instruction Set Architecture be designed natively in Bengali,
-> without depending on English-centric computing standards?"_
-
-The answer is **yes**. Nirdeshika-16 demonstrates this through:
-
-- Custom **Akshar-Lipi 8** character encoding
-- Proprietary **Akkhar-Hex** number system (Bengali consonants for hexadecimal
-  values)
-- Bengali-named registers, opcodes, and addressing modes
-- A working assembler and virtual simulator
+Nirdeshika-16 is different. At the hardware level, it still runs on binary like any processor. But its human-facing layer — the commands, numbers, registers, and documentation — is entirely Bengali. Its commands are Bengali words. Its numbers use Bengali letters. Its internal logic follows Bengali conventions. You can write programs for it without knowing a single word of English.
 
 ---
 
-## Key Technical Specifications
+## How It Works
 
-| Property          | Specification                                    |
-| ----------------- | ------------------------------------------------ |
-| **Architecture**  | 16-bit Native                                    |
-| **Design Type**   | Load-Store (RISC)                                |
-| **Endianness**    | Little-Endian                                    |
-| **Encoding**      | Akshar-Lipi 8 (Custom)                           |
-| **Number System** | Akkhar-Hex (Bengali consonants for values 10–15) |
+A processor does three things: it takes instructions, processes them, and produces output. Nirdeshika-16 does all three in Bengali.
 
----
-
-## Instruction Format (4-4-8)
-
-Every instruction is 16 bits wide and follows a fixed **4-4-8** structure:
-
-| Field                   | Width  | Description                                      |
-| ----------------------- | ------ | ------------------------------------------------ |
-| **Opcode**              | 4 bits | 16 unique instructions                           |
-| **Register ID**         | 4 bits | 16 general-purpose and special-purpose registers |
-| **Immediate / Address** | 8 bits | Constant value or memory address                 |
-
-This RISC-style, fixed-width format ensures deterministic decoding.
+| What You Want To Do | How Nirdeshika-16 Handles It |
+|---------------------|-------------------------------|
+| **Write a program** | Use Bengali words as commands. No English keywords. |
+| **Store numbers** | Use Bengali consonants for values beyond 9. A custom number system called Akkhar-Hex. |
+| **Process text** | Uses a planned custom encoding (Akshar-Lipi 8) designed specifically for Bengali. |
+| **Run the program** | The simulator (Shimu) executes it like a real CPU, showing you exactly what happens. |
 
 ---
 
-## Ecosystem
+## What You Can Build With It
 
-The reference implementation includes two supporting tools:
-
-- **[Boyon (Assembler)](https://github.com/Akkhar-Labs/Boyon):** A native
-  assembler that processes Bengali-syntax assembly code into Nirdeshika-16
-  binary output.
-- **[Shimu (Simulator)](https://github.com/Akkhar-Labs/Shimu):** A
-  high-performance virtual CPU simulator implementing the full
-  fetch-decode-execute cycle with 64KB of virtual RAM.
+- **Learn how computers actually work** — by seeing one that speaks your language
+- **Write simple programs** — math calculations, logic operations, data movement
+- **Understand assembly language** — without the English barrier
+- **Teach computing** — in Bengali classrooms, without switching to English for technical terms
 
 ---
 
-## Documentation
+## What's Included
 
-The complete technical specification is available in the
-**[Master Specification PDF](https://github.com/Akkhar-Labs/Nirdeshika-16/releases)**.
+You get three things when you download Nirdeshika-16:
 
----
-
-## Roadmap
-
-Nirdeshika-16 is feature-complete. The next iteration — **Nirdeshika-64** — will
-be a production-grade 64-bit architecture as part of the broader **Sovereign
-Bengali Computing Stack**:
-
-- **Matrika OS** — Native operating system
-- **BAPS Kernel** — Bengali-native kernel
-- **Kotha Language** — Conversational Bengali programming language
+1. **The Processor Design** — Complete specification. Every instruction. Every register. Every rule. Fully documented.
+2. **The Assembler (Boyon)** — A tool that converts Bengali programs into machine code the processor can run.
+3. **The Simulator (Shimu)** — A virtual CPU that runs your Bengali programs on any computer, showing you exactly how the processor works internally.
 
 ---
 
-## Architecture & Authorship
+## Technical Details (For Those Who Want Them)
 
-- **Architect:** [Rahat Hasan](https://github.com/rahatarch)
-- **Organization:** [Akkhar-Labs](https://github.com/Akkhar-Labs)
+| Specification | Value |
+|---------------|-------|
+| **Processor Type** | 16-bit |
+| **Design Style** | RISC (simple, fast instructions) |
+| **Instruction Format** | Fixed 16-bit length. 4 bits for the command, 4 bits for which register, 8 bits for data. |
+| **Number of Instructions** | 16 unique commands |
+| **Number of Registers** | 16 storage locations inside the processor |
+| **Memory** | 64KB of virtual RAM (in the simulator) |
+| **Number System** | Akkhar-Hex (Bengali consonants represent numbers 10 through 15) |
+| **Character Encoding** | Akshar-Lipi 8 (planned — custom encoding for Bengali text) |
 
 ---
 
-## License
+## The Bigger Picture
 
-This project is open source. See [LICENSE](LICENSE) for details.
+Nirdeshika-16 is the first piece of a larger plan: a complete computer system where everything works in Bengali.
+
+- **Nirdeshika-64** — A more powerful 64-bit processor (coming next)
+- **Kotha** — A Bengali programming language where you write code in Bengali sentences
+- **BAPS** — A kernel (the core of an operating system) written in Bengali
+- **Matrika OS** — A complete operating system in Bengali
+- **AKFS** — A file system for storing data, designed in Bengali
+
+The goal is simple: a computer that speaks your language. From the moment you turn it on to the moment you write a program. No English. No translation. Just Bengali.
+
+---
+
+## Who Built This
+
+**Rahat Hasan** — A systems architect from Bogura, Bangladesh who designed Nirdeshika-16 from first principles. He designed the Akkhar-Hex number system, the Akshar-Lipi 8 character encoding (planned), and the full instruction set architecture that enables Bengali speakers to program computers in their own language.
+
+**Akkhar-Labs** — A research collective building sovereign computing technology for Bangladesh. Nirdeshika-16 is the foundation of a larger vision: a complete Bengali-language computing stack, from silicon to operating system, where no English is required at any layer.
+
+---
+
+## Get Started
+
+Everything is free and open source. Download the specification, the assembler, and the simulator from the links above. Write your first Bengali program today.
+
+No English required.
