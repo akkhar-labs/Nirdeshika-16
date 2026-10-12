@@ -24,7 +24,7 @@ A processor does three things: it takes instructions, processes them, and produc
 |---------------------|-------------------------------|
 | **Write a program** | Use Bengali words as commands. No English keywords. |
 | **Store numbers** | Use Bengali consonants for values beyond 9. A custom number system called Akkhar-Hex. |
-| **Process text** | Uses a planned custom encoding (Akshar-Lipi 8) designed specifically for Bengali. |
+| **Process text** | Uses the custom encoding (Akshar-Lipi 8) specified for Bengali. |
 | **Run the program** | The simulator (Shimu) executes it like a real CPU, showing you exactly what happens. |
 
 ---
@@ -54,12 +54,12 @@ You get three things when you download Nirdeshika-16:
 |---------------|-------|
 | **Processor Type** | 16-bit |
 | **Design Style** | RISC (simple, fast instructions) |
-| **Instruction Format** | Fixed 16-bit length. 4 bits for the command, 4 bits for which register, 8 bits for data. |
+| **Instruction Format** | Fixed 16-bit length. 4 bits for the command; the remaining 12 bits encode registers, an 8-bit value/address, or reserved bits depending on the instruction. |
 | **Number of Instructions** | 16 unique commands |
-| **Number of Registers** | 16 storage locations inside the processor |
-| **Memory** | 64KB of virtual RAM (in the simulator) |
+| **Number of Registers** | 16 general registers and 3 special registers (19 total) |
+| **Memory** | 65,536 memory addresses; direct instruction addresses are limited to 0–255 |
 | **Number System** | Akkhar-Hex (Bengali consonants represent numbers 10 through 15) |
-| **Character Encoding** | Akshar-Lipi 8 (planned — custom encoding for Bengali text) |
+| **Character Encoding** | Akshar-Lipi 8 (custom encoding for Bengali text, specified in the architecture) |
 
 ---
 
@@ -79,7 +79,7 @@ The goal is simple: a computer that speaks your language. From the moment you tu
 
 ## Who Built This
 
-**Rahat Hasan** — A systems architect from Bogura, Bangladesh who designed Nirdeshika-16 from first principles. He designed the Akkhar-Hex number system, the Akshar-Lipi 8 character encoding (planned), and the full instruction set architecture that enables Bengali speakers to program computers in their own language.
+**Rahat Hasan** — A systems architect from Bogura, Bangladesh who designed Nirdeshika-16 from first principles. He designed the Akkhar-Hex number system, the Akshar-Lipi 8 character encoding, and the full instruction set architecture that enables Bengali speakers to program computers in their own language.
 
 **Akkhar-Labs** — A research collective building sovereign computing technology for Bangladesh. Nirdeshika-16 is the foundation of a larger vision: a complete Bengali-language computing stack, from silicon to operating system, where no English is required at any layer.
 
@@ -87,6 +87,6 @@ The goal is simple: a computer that speaks your language. From the moment you tu
 
 ## Get Started
 
-Everything is free and open source. Download the specification, the assembler, and the simulator from the links above. Write your first Bengali program today.
+The specification is available under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) for attributed, noncommercial use. Commercial use requires the architect’s written permission. Download the specification, the assembler, and the simulator from the links above. Write your first Bengali program today.
 
 No English required.
